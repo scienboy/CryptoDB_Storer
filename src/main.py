@@ -117,8 +117,8 @@ if __name__ == '__main__':
 
     timeframes = ['1m']
     # timeframes = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M']
-    # schedule.every(3).seconds.do(main_algo)                     # 1초마다 실행
-    schedule.every(60).minutes.do(main_algo)                     # 20분마다 실행
+    schedule.every(3).seconds.do(main_algo)                     # 1초마다 실행
+    # schedule.every(60).minutes.do(main_algo)                     # 20분마다 실행
     # schedule.every().monday.at("09:00").do(printhelloworld)   # 월요일 09:00분에 실행
     # schedule.every().day.at("09:10").do(job)                  # 매일 09시10분에
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
         try:
             schedule.run_pending()                          # first log line generation
-            print('', end='\r')
+            print(' ', end='\r')
             print('다음 실행까지 ' + time.strftime('%H:%M:%S', time.gmtime(schedule.idle_seconds())) + ' 초 남았습니다.')
         except:
             print('[ERROR] main function has a problem.')

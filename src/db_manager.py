@@ -74,7 +74,8 @@ class DB_Manager():
     def asis_db_validity(self, db_datatime_last, timeframe):
         # timeframe 기준 가장 최신의 데이터가 이미 있다면 db 업데이트를 하지 않기 위한 함수
 
-        now = datetime.now() + timedelta(hours=9)       # binance는 현지 시간 기준으로 데이터 제공하는데 반해, 리눅스에서는 datetime.now() 함수가 utc 기준으로 시간을 리턴하기 때문에 보정작업 진행
+        # now = datetime.now() + timedelta(hours=9)       # binance는 현지 시간 기준으로 데이터 제공하는데 반해, 리눅스에서는 datetime.now() 함수가 utc 기준으로 시간을 리턴하기 때문에 보정작업 진행
+        now = datetime.now()
         cnt = int(timeframe[:-1])
         factor = timeframe[-1]
 
