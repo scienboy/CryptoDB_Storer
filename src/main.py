@@ -103,7 +103,7 @@ def store_binance_data(market='spot', timeframes=['1m']):
     logging.info('duration: ' + str(time_duration))
 
 def main_algo(timeframes=['1m']):
-    store_binance_data('spot', timeframes)
+    # store_binance_data('spot', timeframes)
     store_binance_data('future', timeframes)
 
 if __name__ == '__main__':

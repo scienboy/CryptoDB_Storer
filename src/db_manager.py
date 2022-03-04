@@ -7,7 +7,7 @@ class DB_Manager():
 
     def __init__(self, db_name):
 
-        path_dir = './db'
+        path_dir = '../db'
         try:
             os.makedirs(path_dir)
         except OSError:
@@ -15,7 +15,7 @@ class DB_Manager():
                 raise
 
         self.db_name = db_name
-        self.conn = sqlite3.connect("db/" + str(self.db_name) + '.db')  # connection 생성
+        self.conn = sqlite3.connect("../db/" + str(self.db_name) + '.db')  # connection 생성
         self.cur = self.conn.cursor()  # connection을 통해서 cursor를 넣어줘야 함
 
 
@@ -27,14 +27,14 @@ class DB_Manager():
         ins_sql = ins_sql[:-2]
         ins_sql = ins_sql + ')'
 
-        self.conn = sqlite3.connect("db/" + str(self.db_name) + '.db')  # connection 생성
+        self.conn = sqlite3.connect("../db/" + str(self.db_name) + '.db')  # connection 생성
         self.cur = self.conn.cursor()  # connection을 통해서 cursor를 넣어줘야 함
         self.cur.execute(ins_sql)
         self.conn.commit()
         self.conn.close()  # 커넥션 닫기
 
     def insert_data(self, table_name, data):
-        self.conn = sqlite3.connect("db/" + str(self.db_name) + '.db')  # connection 생성
+        self.conn = sqlite3.connect("../db/" + str(self.db_name) + '.db')  # connection 생성
         self.cur = self.conn.cursor()  # connection을 통해서 cursor를 넣어줘야 함
         for row in data.itertuples():
             ins_sql = "insert into " + str(table_name) + "("
@@ -50,7 +50,7 @@ class DB_Manager():
         ins_sql_first = 'select min(datetime) from ' + table_name
 
         try:
-            self.conn = sqlite3.connect("db/" + str(self.db_name) + '.db')  # connection 생성
+            self.conn = sqlite3.connect("../db/" + str(self.db_name) + '.db')  # connection 생성
             self.cur = self.conn.cursor()  # connection을 통해서 cursor를 넣어줘야 함
             self.cur.execute(ins_sql_first)
             for res in self.cur:

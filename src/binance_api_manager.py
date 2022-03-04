@@ -17,8 +17,8 @@ class BinanceAPI():
             self.binance = ccxt.binance()
         elif market == 'future':
 
-            # with open(".\\data\\keys.txt") as f:    # API key 조회
-            with open("keys.txt") as f:    # 리눅스 용
+            # with open("keys.txt") as f:  # 리눅스 용
+            with open("..\\data\\keys.txt") as f:    # API key 조회
                 lines = f.readlines()
                 api_key = lines[0].strip()
                 secret = lines[1].strip()
